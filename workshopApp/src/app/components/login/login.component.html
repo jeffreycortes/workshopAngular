@@ -1,1 +1,22 @@
-<p>login works!</p>
+<div id="form-login" (keypress)="keypress($event);">
+  <div>
+    <label for="login">Login:</label> <br/>
+    <input type="text" name="login" [(ngModel)]="login">
+  </div>
+  <div>
+    <label for="pass">Pass</label> <br/>
+    <input type="password" name="pass" [ngModel]="password">
+  </div>
+  <button type="button" (click)="signIn()">Sign In</button>
+</div>
+
+<div id="log">
+  <h4>Log de intentos de SignIn</h4> <hr>
+  <div><strong>Login ingresado:</strong> {{login}}</div> <br>
+  <ul>
+    <li *ngFor="let eventoSignIn of listaEventosSignIn">
+      <strong>Fecha evento:</strong> {{eventoSignIn.fechaSignIn | date: 'yyyy-MM-d'}}
+      <strong>login:</strong> {{eventoSignIn.login}}
+    </li>
+  </ul>
+</div>
