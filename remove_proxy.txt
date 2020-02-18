@@ -1,0 +1,18 @@
+================
+NPM:
+================
+npm config delete http-proxy
+npm config delete https-proxy
+
+npm config rm proxy
+npm config rm https-proxy
+
+set HTTP_PROXY=null
+set HTTPS_PROXY=null
+
+
+==========================
+GIT
+==========================
+
+git config --global --unset http.proxy
