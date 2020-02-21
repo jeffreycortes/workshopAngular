@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalWindowService } from 'src/app/services/modal-window.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   public readonly TOKEN_AUTENTICACION = 'token_on';
   public listaEventosSignIn: IEventoSignIn[];
 
-  constructor() {
+  constructor(private modalWindowService: ModalWindowService) {
   }
 
   ngOnInit() {
@@ -22,12 +23,11 @@ export class LoginComponent implements OnInit {
   }
 
   signIn(): void {
-    const mensaje =
-      this.autenticarUsuario(this.login, this.password) ?
+    const mensaje = this.autenticarUsuario(this.login, this.password) ?
       'Usuario autenticado!!' :
       'Error: !Credenciales incorrectas!';
 
-    alert(mensaje);
+    this.modalWindowService.ShowModalAlert(mensaje);
   }
 
   autenticarUsuario(login: string, password: string): boolean {
@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
       this.signIn();
     }
   }
-
 }
 
 interface IEventoSignIn {
