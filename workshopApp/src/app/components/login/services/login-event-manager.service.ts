@@ -1,9 +1,23 @@
 import { Injectable } from '@angular/core';
+import { IEventoLogin } from '../interfaces/IEventoLogin';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginEventManagerService {
+class LoginEventManagerService {
+  public listaEventosSignIn: IEventoLogin[];
 
-  constructor() { }
+  constructor() {
+    this.listaEventosSignIn = [];
+  }
+
+  registrarEvento(evento: IEventoLogin) {
+    this.listaEventosSignIn.push(evento);
+  }
+
+  obtenerEventosLogin(): Array<IEventoLogin> {
+    return this.listaEventosSignIn;
+  }
 }
+
+export {LoginEventManagerService, IEventoLogin};

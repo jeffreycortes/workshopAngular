@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalWindowService } from 'src/app/services/modal-window.service';
+import { LoginEventManagerService } from './services/login-event-manager.service';
 
 @Component({
   selector: 'app-login',
@@ -12,14 +13,14 @@ export class LoginComponent implements OnInit {
   public login: string;
   public password: string;
   public readonly TOKEN_AUTENTICACION = 'token_on';
-  public listaEventosSignIn: IEventoSignIn[];
 
-  constructor(private modalWindowService: ModalWindowService) {
+  constructor(private modalWindowService: ModalWindowService,
+              private loginEventManagerService: LoginEventManagerService) {
+
   }
 
   ngOnInit() {
     this.login = '';
-    this.listaEventosSignIn = [];
   }
 
   signIn(): void {
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
   }
 
   registrarEventoDeSignIn(login: string): void {
-    this.listaEventosSignIn.push({fechaSignIn: new Date(), login});
+    this.loginEventManagerService.registrarEvento({fechaSignIn: new Date(), login});
   }
 
   keypress(evt: any): void {
@@ -46,9 +47,4 @@ export class LoginComponent implements OnInit {
       this.signIn();
     }
   }
-}
-
-interface IEventoSignIn {
-  fechaSignIn: Date;
-  login: string;
 }
