@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './modules/shared/shared.module';
 import { LoginComponent } from './components/login/login.component';
+import { LoginEventsComponent } from './components/login/login-events/login-events.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    LoginEventsComponent
   ],
   imports: [
     BrowserModule,
