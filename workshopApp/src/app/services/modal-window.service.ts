@@ -6,4 +6,8 @@ import { Injectable } from '@angular/core';
 export class ModalWindowService {
 
   constructor() { }
+
+  ShowModalAlert(mensaje: string) {
+    alert(mensaje);
+  }
 }
