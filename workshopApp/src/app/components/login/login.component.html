@@ -10,13 +10,4 @@
   <button type="button" (click)="signIn()">Sign In</button>
 </div>
 
-<div id="log">
-  <h4>Log de intentos de SignIn</h4> <hr>
-  <div><strong>Login ingresado:</strong> {{login}}</div> <br>
-  <ul>
-    <li *ngFor="let eventoSignIn of listaEventosSignIn">
-      <strong>Fecha evento:</strong> {{eventoSignIn.fechaSignIn | date: 'yyyy-MM-d'}}
-      <strong>login:</strong> {{eventoSignIn.login}}
-    </li>
-  </ul>
-</div>
+<app-login-events></app-login-events>

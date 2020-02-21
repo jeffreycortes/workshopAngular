@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginEventManagerService, IEventoLogin } from '../services/login-event-manager.service';
 
 @Component({
   selector: 'app-login-events',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginEventsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginEventManagerService: LoginEventManagerService) { }
 
   ngOnInit() {
   }
 
+  obtenerEventosLogin(): Array<IEventoLogin> {
+    return this.loginEventManagerService.obtenerEventosLogin();
+  }
 }
